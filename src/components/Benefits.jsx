@@ -1,33 +1,33 @@
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, Clock, Smartphone, Search, Globe2, MessageCircle } from 'lucide-react';
 
 const benefits = [
   {
     icon: Zap,
     title: 'Velocidade Extrema',
-    description: 'Seu site no ar em 48 horas. Sem enrolação, sem burocracia.'
+    description: 'Seu site no ar em 48h. Sem enrolação.'
   },
   {
     icon: Clock,
     title: 'Venda 24 Horas',
-    description: 'Seu negócio aberto mesmo quando você está dormindo.'
+    description: 'Seu negócio vendendo mesmo quando você está offline.'
   },
   {
     icon: Smartphone,
     title: 'Mobile First',
-    description: 'Design perfeito para celulares, onde 90% dos seus clientes estão.'
+    description: 'Design perfeito para celulares — onde 90% dos clientes estão.'
   },
   {
     icon: Search,
     title: 'Google Friendly',
-    description: 'Estrutura otimizada para você aparecer nas buscas locais.'
+    description: 'Otimizado para aparecer nas buscas locais.'
   },
   {
     icon: Globe2,
     title: 'Domínio Próprio',
-    description: 'Nada de "seusite.wix.com". Tenha um endereço profissional.'
+    description: 'Nada de domínios amadores. Tenha um endereço profissional.'
   },
   {
     icon: MessageCircle,
@@ -37,12 +37,36 @@ const benefits = [
 ];
 
 const Benefits = () => {
+  const words = ["Crescer", "Vender", "Decolar", "Atrair Clientes", "Converter Mais", "Profissionalizar"];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-32 px-6 bg-[#0F131F]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Tudo que você precisa para <span className="text-gradient">Crescer</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 flex flex-col md:block items-center justify-center gap-2">
+            Tudo que você precisa para{' '}
+            <div className="inline-block w-[280px] text-left relative h-[1.2em] align-top">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={index}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-gradient absolute left-0 top-0 whitespace-nowrap"
+                >
+                  {words[index]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
           </h2>
           <p className="text-xl text-gray-400">
             Tecnologia de ponta simplificada para o seu negócio.

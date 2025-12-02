@@ -7,32 +7,66 @@ const steps = [
   {
     icon: Search,
     title: "A Busca Frustrada",
-    description: "Clientes tentavam nos encontrar no Google, mas só achavam informações desatualizadas.",
-    image: <img alt="Person searching on phone looking confused" src="https://images.unsplash.com/photo-1680602239834-092e38d8bad6" />
+    description: "Muitos empresários acreditam que só ter Instagram resolve. Não resolve. Sem uma página que centralize endereço, horários, produtos e serviços, o cliente não encontra nada — e simplesmente não compra.",
+    image: <img alt="Person searching on phone looking confused" src="/images/realstory_frustrated_search_custom.jpg" />
   },
   {
     icon: HelpCircle,
     title: "O Caos das Perguntas",
-    description: "WhatsApp lotado de perguntas básicas: 'Qual o endereço?', 'Que horas abre?'.",
-    image: <img alt="Overwhelmed person with notifications" src="https://images.unsplash.com/photo-1643845892686-30c241c3938c" />
+    description: (
+      <>
+        Após rodar a internet inteira atrás do seu contato, o cliente tenta te achar no WhatsApp.
+        <br />
+        Ele precisa salvar teu número na mão, abrir a lista de contatos e só então mandar:
+        <br />
+        “Que horas fecha hoje?”
+        <br />
+        E você, cheio de coisas pra fazer, só vê a mensagem depois que já fechou.
+      </>
+    ),
+    image: <img alt="Overwhelmed person with notifications" src="/images/realstory_overwhelmed_custom.jpg" />
   },
   {
     icon: Frown,
     title: "Perdendo Vendas",
-    description: "Enquanto respondíamos um, outros 3 clientes desistiam pela demora.",
-    image: <img alt="Empty store or lost customer" src="https://images.unsplash.com/photo-1662967214162-9a9c8c2c5392" />
+    description: (
+      <>
+        Enquanto você responde um, outros três desistem pela demora e escolhem seus concorrentes.
+        <br />
+        Em um mês, isso vira uma perda enorme de faturamento.
+        <br />
+        Parece até que o cliente precisa provar que “merece” ser atendido… e acaba desistindo.
+        <br />
+        O pior: 90% das mensagens são dúvidas básicas que ele resolveria em segundos se tivesse um site claro e acessível.
+      </>
+    ),
+    image: <img alt="Empty store or lost customer" src="/images/realstory_lost_sales_custom.jpg" />
   },
   {
     icon: Lightbulb,
     title: "A Solução Simples",
-    description: "Criamos uma página única com tudo que importa: endereço, botão do WhatsApp e fotos.",
-    image: <img alt="Clean landing page design" src="https://images.unsplash.com/photo-1660806346961-cf24146cd936" />
+    description: (
+      <>
+        Criamos uma página única com tudo que importa: horários, produtos e serviços, fotos e informações essenciais.
+        <br />
+        Em um clique, o cliente vê seus diferenciais e já decide comprar.
+        <br />
+        E quando quiser ir até sua empresa, ele toca no botão de rota e chega sem erro. Simples assim.
+      </>
+    ),
+    image: <img alt="Clean landing page design" src="/images/realstory_solution_custom.png" />
   },
   {
     icon: TrendingUp,
     title: "O Resultado Real",
-    description: "Vendas subiram 40%. Clientes chegam decididos. Liberdade total.",
-    image: <img alt="Sales graph going up" src="https://images.unsplash.com/photo-1634097537825-b446635b2f7f" />
+    description: (
+      <>
+        Os clientes começaram a aparecer, as vendas voltaram a entrar e o negócio finalmente começou a fluir.
+        <br />
+        Com a página no ar, a empresa ganha ritmo, cresce e atrai clientes mais qualificados todos os dias.
+      </>
+    ),
+    image: <img alt="Sales graph going up" src="/images/realstory_result_custom.png" />
   }
 ];
 
@@ -50,13 +84,13 @@ const RealStory = () => {
     <section className="py-24 bg-[#0B0F19] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[120px] pointer-events-none" />
-      
+
       {/* Connecting Line */}
       <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-cyan-500/20 to-transparent md:-translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -64,7 +98,7 @@ const RealStory = () => {
           >
             Baseado em fatos reais
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -78,7 +112,7 @@ const RealStory = () => {
         <div ref={targetRef} className="relative space-y-12 md:space-y-24">
           {steps.map((step, index) => {
             const isEven = index % 2 === 0;
-            
+
             return (
               <motion.div
                 key={index}

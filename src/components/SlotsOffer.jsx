@@ -38,7 +38,7 @@ const SlotsOffer = () => {
             Apenas <span className="text-gradient-lime">20 Vagas</span> este mês
           </h2>
           <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-            Priorizamos a qualidade. Atendemos poucos clientes para garantir que sua página fique perfeita.
+            Priorizamos qualidade. Atendemos poucos clientes para entregar páginas realmente profissionais.
           </p>
 
           <div className="grid grid-cols-4 md:grid-cols-5 gap-3 max-w-3xl mx-auto mb-12">
@@ -49,16 +49,15 @@ const SlotsOffer = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.03 }}
-                className={`aspect-square rounded-xl flex flex-col items-center justify-center text-lg font-bold relative overflow-hidden ${
-                  takenSlots.includes(index)
+                className={`aspect-square rounded-xl flex flex-col items-center justify-center text-lg font-bold relative overflow-hidden ${takenSlots.includes(index)
                     ? 'bg-red-500/5 border border-red-500/20 text-red-500/50'
                     : 'bg-lime-500/10 border border-lime-500/30 text-lime-400 shadow-[0_0_15px_rgba(132,204,22,0.2)]'
-                }`}
+                  }`}
               >
                 {takenSlots.includes(index) ? (
-                   <span className="absolute inset-0 flex items-center justify-center bg-red-900/20 backdrop-blur-[1px]">
-                     X
-                   </span>
+                  <span className="absolute inset-0 flex items-center justify-center bg-red-900/20 backdrop-blur-[1px]">
+                    X
+                  </span>
                 ) : (
                   index + 1
                 )}
@@ -70,7 +69,7 @@ const SlotsOffer = () => {
             <p className="text-2xl text-white">
               Restam apenas <span className="text-lime-400 font-bold text-3xl">{20 - takenSlots.length}</span> vagas
             </p>
-            
+
             <button
               onClick={scrollToForm}
               className="btn-primary text-lg px-12 py-5 animate-pulse"

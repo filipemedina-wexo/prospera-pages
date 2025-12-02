@@ -32,21 +32,25 @@ const BeforeAfter = () => {
               <span className="inline-block px-4 py-1 bg-red-500/10 text-red-400 rounded-full text-sm font-bold uppercase mb-8">
                 Modo Atual
               </span>
-              
+
               <div className="space-y-6 mb-8">
-                <img alt="Confused customer looking at phone" className="w-full h-48 object-cover rounded-xl opacity-60 grayscale" src="https://images.unsplash.com/photo-1571239982287-9a7a17c1b9c1" />
+                <img alt="Confused customer looking at phone" className="w-full h-48 object-cover rounded-xl opacity-60 grayscale" src="/images/before_after_confused_custom.jpg" />
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-gray-400">
                     <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                    "Me passa o endereço?" (10x por dia)
+                    Você trabalha o dobro para vender a metade
                   </li>
                   <li className="flex items-center gap-3 text-gray-400">
                     <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                    Cliente desiste de procurar
+                    Responde 10 vezes a mesma pergunta
                   </li>
                   <li className="flex items-center gap-3 text-gray-400">
                     <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                    Sem credibilidade online
+                    Cliente some porque não te acha
+                  </li>
+                  <li className="flex items-center gap-3 text-gray-400">
+                    <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                    Parece que seu negócio não existe
                   </li>
                 </ul>
               </div>
@@ -70,19 +74,23 @@ const BeforeAfter = () => {
               </span>
 
               <div className="space-y-6 mb-8">
-                <img alt="Sleek mobile landing page" className="w-full h-48 object-cover rounded-xl shadow-lg border border-white/10" src="https://images.unsplash.com/photo-1579667410546-f7079afa0601" />
+                <img alt="Sleek mobile landing page" className="w-full h-48 object-cover rounded-xl shadow-lg border border-white/10" src="/images/before_after_prospera_custom.png" />
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-white font-medium">
                     <CheckCircle2 className="w-5 h-5 text-cyan-400" />
-                    Tudo em um link só (Bio/WhatsApp)
+                    Informações claras → cliente compra sem esforço
                   </li>
                   <li className="flex items-center gap-3 text-white font-medium">
                     <CheckCircle2 className="w-5 h-5 text-cyan-400" />
-                    Cliente chega pronto para pagar
+                    Você para de perder vendas idiotas
                   </li>
                   <li className="flex items-center gap-3 text-white font-medium">
                     <CheckCircle2 className="w-5 h-5 text-cyan-400" />
                     Autoridade instantânea
+                  </li>
+                  <li className="flex items-center gap-3 text-white font-medium">
+                    <CheckCircle2 className="w-5 h-5 text-cyan-400" />
+                    Sua empresa finalmente “aparece” para quem conta
                   </li>
                 </ul>
               </div>

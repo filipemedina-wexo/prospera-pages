@@ -12,7 +12,7 @@ const problems = [
   {
     icon: Clock,
     text: "Perda de Tempo",
-    subtext: "Repetindo o endereço 20x ao dia"
+    subtext: "Repetindo o endereço o dia inteiro"
   },
   {
     icon: DollarSign,
@@ -21,8 +21,8 @@ const problems = [
   },
   {
     icon: Globe,
-    text: "Sem Profissionalismo",
-    subtext: "Apenas Instagram não passa confiança"
+    text: "Instagram não resolve",
+    subtext: "Sem página oficial, o cliente não encontra informações básicas e desiste"
   },
   {
     icon: MapPinOff,

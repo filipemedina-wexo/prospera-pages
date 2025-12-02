@@ -7,7 +7,7 @@ const WhoIsFor = () => {
   return (
     <section className="py-32 px-6 bg-[#0B0F19] relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         <h2 className="text-3xl md:text-5xl font-bold text-center mb-20">
           Para quem é a <span className="text-white">Prospera?</span>
@@ -31,7 +31,7 @@ const WhoIsFor = () => {
                 'Negócios locais (Restaurantes, Lojas, Clínicas)',
                 'Prestadores de serviços autônomos',
                 'Quem vende pelo WhatsApp/Instagram',
-                'Quem quer profissionalizar o atendimento'
+                'Quem quer profissionalizar o atendimento e as vendas'
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-gray-300">
                   <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
@@ -57,7 +57,7 @@ const WhoIsFor = () => {
               {[
                 'E-commerces complexos com 1000 produtos',
                 'Grandes corporações com setor de TI',
-                'Quem busca soluções "de graça" e ruins',
+                'Quem busca soluções gratuitas e limitadas',
                 'Quem não quer investir no crescimento'
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-gray-300">

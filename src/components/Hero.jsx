@@ -38,7 +38,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl lg:text-7xl font-bold leading-tight tracking-tight"
           >
-            Você está perdendo <span className="text-gradient">clientes</span> invisíveis.
+            Você está perdendo <span className="text-gradient">clientes</span> todos os dias.
           </motion.h1>
 
           <motion.p
@@ -47,7 +47,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed"
           >
-            Ninguém encontra as informações básicas do seu negócio. Transforme visitantes em clientes fiéis com uma presença profissional.
+            Seu negócio não aparece, as informações estão soltas… e o cliente desiste. Transforme visitantes em clientes com uma presença profissional.
           </motion.p>
 
           <motion.div
@@ -60,7 +60,7 @@ const Hero = () => {
               Garantir Vaga por R$ 500
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            
+
             <div className="flex flex-col items-start pl-4 border-l border-white/10">
               <p className="text-sm text-gray-400 line-through">De R$ 2.900</p>
               <p className="text-lime-400 font-bold">Economia de 82%</p>
@@ -71,21 +71,21 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="flex items-center justify-center lg:justify-start gap-8 pt-4"
+            className="hidden items-center justify-center lg:justify-start gap-8 pt-4"
           >
-             <div className="flex -space-x-3">
-               {[1,2,3,4].map(i => (
-                 <div key={i} className="w-10 h-10 rounded-full border-2 border-[#0B0F19] bg-gray-700 overflow-hidden">
-                   <img alt="Small business owner portrait" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1632709878761-d4d0f5bdc2d8" />
-                 </div>
-               ))}
-             </div>
-             <div className="flex flex-col">
-                <div className="flex text-yellow-400 gap-0.5">
-                  {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
+            <div className="flex -space-x-3">
+              {[1, 2, 3, 4].map(i => (
+                <div key={i} className="w-10 h-10 rounded-full border-2 border-[#0B0F19] bg-gray-700 overflow-hidden">
+                  <img alt="Small business owner portrait" className="w-full h-full object-cover" src="/images/hero_business_owner_custom.jpg" />
                 </div>
-                <p className="text-sm text-gray-400">Mais de 200 negócios atendidos</p>
-             </div>
+              ))}
+            </div>
+            <div className="flex flex-col">
+              <div className="flex text-yellow-400 gap-0.5">
+                {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
+              </div>
+              <p className="text-sm text-gray-400">Mais de 200 negócios atendidos — com resultados reais</p>
+            </div>
           </motion.div>
         </div>
 
@@ -96,21 +96,22 @@ const Hero = () => {
           className="relative hidden lg:block"
         >
           <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-cyan-500/20">
-            <img alt="Modern Landing Page Mockup on Laptop" className="w-full h-auto" src="https://images.unsplash.com/photo-1694840593025-87acec00bbe6" />
+            <img alt="Small Business Owner" className="w-full h-auto object-cover" src="/images/hero_business_owner_custom.jpg" />
           </div>
-          
+
           {/* Floating Elements */}
-          <motion.div 
+          <motion.div
             animate={{ y: [-10, 10, -10] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -top-10 -right-10 bg-[#161b2c] p-4 rounded-xl border border-white/10 shadow-xl z-20 flex items-center gap-3"
           >
             <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-              <ArrowRight className="text-green-400 rotate-45" />
+              <ArrowRight className="text-green-400 rotate-[-55deg]" />
             </div>
             <div>
               <p className="text-xs text-gray-400">Vendas</p>
               <p className="text-lg font-bold text-white">+42%</p>
+              <p className="text-xs text-gray-400">Baseado em casos reais</p>
             </div>
           </motion.div>
         </motion.div>
