@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
-  
+
   useEffect(() => {
     const unsubscribe = scrollY.onChange((latest) => {
       setIsScrolled(latest > 50);
@@ -22,17 +22,11 @@ const Header = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'py-4 bg-[#0B0F19]/90 backdrop-blur-md border-b border-white/5' : 'py-6 bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4 bg-[#0B0F19]/90 backdrop-blur-md border-b border-white/5' : 'py-6 bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
-            <span className="text-white font-bold text-lg">P</span>
-          </div>
-          <span className="text-xl font-bold text-white tracking-tight">Prospera</span>
-        </div>
+        <img src="/images/logo-prospera.png" alt="Prospera Logo" className="h-10 w-auto" />
 
         <button
           onClick={scrollToForm}
