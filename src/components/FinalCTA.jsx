@@ -72,6 +72,12 @@ const FinalCTA = () => {
       });
 
       setSubmitted(true);
+
+      // Track Lead event
+      if (window.fbq) {
+        window.fbq('track', 'Lead');
+      }
+
       toast({
         title: "Sucesso! 🎉",
         description: "Cadastro recebido. Vamos te chamar no WhatsApp em breve.",
