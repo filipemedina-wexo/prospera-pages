@@ -146,6 +146,9 @@ const FinalCTA = () => {
                 href="https://www.asaas.com/c/41zbzi5vgxh0b50n"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  if (window.fbq) window.fbq('track', 'InitiateCheckout');
+                }}
                 className={`inline-block w-full md:w-auto bg-green-500 hover:bg-green-600 text-white font-bold text-xl py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-green-500/20 ${timeLeft === 0 ? 'animate-pulse' : ''}`}
               >
                 Pagar R$ 500 e confirmar minha vaga
