@@ -8,7 +8,7 @@ const plans = [
   {
     name: 'Essencial',
     subtitle: 'Presença Digital Rápida',
-    price: 'A partir de R$ 500',
+    price: 'A partir de R$ 900',
     frequency: 'Pagamento único',
     description: 'Ideal para quem está começando ou precisa colocar o negócio online de forma clara e profissional.',
     features: [
@@ -32,7 +32,7 @@ const plans = [
   {
     name: 'Site Completo',
     subtitle: 'Mais clareza, mais confiança',
-    price: 'A partir de R$ 1.200',
+    price: 'A partir de R$ 1.400',
     frequency: 'Pagamento único',
     description: 'Para negócios que precisam explicar melhor o que fazem e transmitir mais credibilidade aos clientes.',
     features: [
