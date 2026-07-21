@@ -19,9 +19,9 @@ const Footer = () => {
           {/* Logo & Description */}
           <div className="md:col-span-1">
             <img
-              src="https://horizons-cdn.hostinger.com/836a3bcf-4566-4dea-b476-99ce52484f28/16db321441534fd30c9a41bf6db32b92.png"
+              src="/logo-prospera-new.png"
               alt="Prospera Logo"
-              className="h-24 w-auto mb-4"
+              className="h-24 w-auto mb-4 brightness-0 invert"
             />
             <p className="text-slate-400 text-sm leading-relaxed">
               Transformando negócios em sucesso digital desde 2024.
