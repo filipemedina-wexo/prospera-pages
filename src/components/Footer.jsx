@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Instagram, Mail, Phone } from 'lucide-react';
+import { trackMetaEvent } from '@/lib/tracking';
 
 const Footer = () => {
   const scrollToSection = (id) => {
@@ -71,6 +72,7 @@ const Footer = () => {
                 href="https://wa.me/5551997770870"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackMetaEvent('Contact', { content_name: 'WhatsApp Prospera', content_category: 'contact' })}
                 className="flex items-center gap-2 text-slate-400 hover:text-teal-400 transition-colors text-sm"
               >
                 <Phone size={16} />

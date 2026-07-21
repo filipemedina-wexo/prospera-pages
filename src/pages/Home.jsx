@@ -3,12 +3,12 @@ import Header from '@/components/Header.jsx';
 import Hero from '@/components/Hero.jsx';
 import ProblemStatement from '@/components/ProblemStatement.jsx';
 import WhatYouReceive from '@/components/WhatYouReceive.jsx';
+import WhoIsFor from '@/components/WhoIsFor.jsx';
 import Transformation from '@/components/Transformation.jsx';
 import HowItWorks from '@/components/HowItWorks.jsx';
 import Portfolio from '@/components/Portfolio.jsx';
 import Upgrades from '@/components/Upgrades.jsx';
 import Pricing from '@/components/Pricing.jsx';
-import Testimonials from '@/components/Testimonials.jsx';
 import FAQ from '@/components/FAQ.jsx';
 import WizardContact from '@/components/WizardContact.jsx';
 import Footer from '@/components/Footer.jsx';
@@ -25,6 +25,7 @@ const Home = () => {
                 <Hero />
                 <ProblemStatement />
                 <WhatYouReceive />
+                <WhoIsFor />
                 <Transformation />
                 <HowItWorks />
                 <Portfolio />
@@ -36,7 +37,6 @@ const Home = () => {
                     selectedUpgrades={selectedUpgrades}
                     setSelectedUpgrades={setSelectedUpgrades}
                 />
-                <Testimonials />
                 <FAQ />
                 <WizardContact
                     selectedPlan={selectedPlan}

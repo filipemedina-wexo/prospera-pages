@@ -51,8 +51,8 @@ const TermsOfUse = () => {
                             Os pagamentos devem ser realizados conforme acordado no momento da contratação.
                         </p>
                         <ul className="list-disc pl-6 space-y-2">
-                            <li><strong>Plano Essencial:</strong> R$ 500 (inclui 1 ano de hospedagem gratuita)</li>
-                            <li><strong>Site Completo:</strong> A partir de R$ 1.200</li>
+                            <li><strong>Plano Essencial:</strong> a partir de R$ 1.400</li>
+                            <li><strong>Site Completo:</strong> a partir de R$ 2.000</li>
                             <li><strong>Projetos Especiais:</strong> Valor sob consulta</li>
                         </ul>
                     </section>

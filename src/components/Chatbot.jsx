@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Phone, CheckCircle } from 'lucide-react';
+import { trackMetaEvent } from '@/lib/tracking';
 
 const WHATSAPP_NUMBER = '5551997770870';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -101,7 +102,7 @@ Tudo **feito para você**, do jeito certo.
 
 ## 📦 PLANOS DO PROSPERA
 
-### 🔹 Essencial — R$ 500
+### 🔹 Essencial — a partir de R$ 1.400
 Para quem **não tem nada** ou precisa organizar suas informações no digital.
 
 Resolve:
@@ -120,7 +121,7 @@ Inclui:
 
 ---
 
-### 🔹 Site Completo (a partir de R$ 1.200)
+### 🔹 Site Completo (a partir de R$ 2.000)
 Para quem precisa **explicar melhor o negócio** ou tem mais serviços, produtos ou diferenciais.
 
 Resolve:
@@ -218,11 +219,11 @@ Sempre explique em **1 frase curta**.
 
 ---
 
-## 💬 OBJEÇÃO — "Mas é só R$ 500 mesmo?"
+## 💬 OBJEÇÃO — "Mas é só R$ 1.400 mesmo?"
 
 Sempre responda com tranquilidade:
 
-> "Sim 🙂 O Essencial custa **R$ 500**."
+> "O Essencial começa em **R$ 1.400**. A condição de pagamento é confirmada pela equipe conforme o plano."
 
 Depois, explique o benefício:
 
@@ -275,7 +276,7 @@ O ideal é a equipe te explicar certinho no WhatsApp."
 ## 🔔 GATILHOS AUTOMÁTICOS
 
 ### "preço" | "valor"
-> "O Essencial custa R$ 500 e já inclui 1 ano de hospedagem."
+> "O Essencial começa em R$ 1.400 e inclui 1 ano de hospedagem. O parcelamento em até 12x depende da condição do plano e é confirmado pela equipe."
 
 ### "MEI" | "pequeno negócio"
 > "Funciona muito bem pra pequenos negócios. O Prospera foi criado pra isso 🙂"
@@ -629,6 +630,7 @@ const Chatbot = () => {
         whatsappMessage += '\n\nGostaria de saber mais!';
 
         window.open(`${WHATSAPP_URL}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+        trackMetaEvent('Contact', { content_name: 'WhatsApp Prospera', content_category: 'contact' });
     };
 
     // Verifica se tem dados do lead coletados

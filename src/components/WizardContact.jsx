@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { ArrowRight, Check, Send, Sparkles, User, Briefcase, FileText, MessageCircle, Rocket, Layers, Lock } from 'lucide-react';
+import { getCampaignParams, trackMetaEvent } from '@/lib/tracking';
 
 const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
     const [step, setStep] = useState(1);
@@ -19,6 +20,8 @@ const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
         selectedUpgrades: [],
     });
     const [ref, isInView] = useInView({ threshold: 0.1 });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState('');
 
     // Máscara para telefone: (XX) XXXXX-XXXX
     const formatPhone = (value) => {
@@ -62,6 +65,10 @@ const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (isSubmitting) return;
+        setIsSubmitting(true);
+        setSubmitError('');
+
         const webhookUrl = 'https://prospera-n8n.34eiwn.easypanel.host/webhook/a9d3545d-ad29-486b-9188-331f4e04359a';
 
         const payload = {
@@ -75,30 +82,27 @@ const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
                 ? formData.selectedUpgrades.join(', ')
                 : selectedUpgrades?.join(', ') || 'Nenhum',
             dataEnvio: new Date().toISOString(),
-            origem: 'landing-page-prospera'
+            origem: 'landing-page-prospera',
+            ...getCampaignParams(),
         };
 
-        // Usar sendBeacon que contorna CORS para envio de dados
         try {
-            const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
-            const sent = navigator.sendBeacon(webhookUrl, blob);
+            const response = await fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
 
-            if (sent) {
-                console.log('Lead enviado com sucesso via sendBeacon:', payload);
-            } else {
-                // Fallback para fetch caso sendBeacon falhe
-                await fetch(webhookUrl, {
-                    method: 'POST',
-                    body: JSON.stringify(payload),
-                    keepalive: true
-                });
-                console.log('Lead enviado via fetch fallback:', payload);
-            }
+            if (!response.ok) throw new Error(`Webhook respondeu ${response.status}`);
+
+            trackMetaEvent('Lead', { content_name: 'Formulário Prospera', content_category: 'lead' });
+            nextStep();
         } catch (error) {
             console.error('Erro ao enviar lead:', error);
+            setSubmitError('Não conseguimos enviar seus dados agora. Confira sua conexão e tente novamente.');
+        } finally {
+            setIsSubmitting(false);
         }
-
-        nextStep();
     };
 
     const progress = (step / 3) * 100;
@@ -269,7 +273,7 @@ const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
                                                     className={`p-4 rounded-xl border-2 transition-all text-left ${formData.selectedPlan === 'Essencial' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}
                                                 >
                                                     <span className="font-bold block mb-1">Essencial</span>
-                                                    <span className="text-xs">R$ 500 • Página única</span>
+                                                    <span className="text-xs">A partir de R$ 1.400 • Página única</span>
                                                 </button>
                                                 <button
                                                     type="button"
@@ -277,7 +281,7 @@ const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
                                                     className={`p-4 rounded-xl border-2 transition-all text-left ${formData.selectedPlan === 'Site Completo' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}
                                                 >
                                                     <span className="font-bold block mb-1">Site Completo</span>
-                                                    <span className="text-xs">A partir de R$ 1.200</span>
+                                                    <span className="text-xs">A partir de R$ 2.000</span>
                                                 </button>
                                                 <button
                                                     type="button"
@@ -384,11 +388,15 @@ const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
                                             Ao clicar em Enviar, você concorda com nossos termos. Nossa equipe entrará em contato pelo WhatsApp informado.
                                         </p>
 
+                                        {submitError && (
+                                            <p role="alert" className="text-sm text-red-600 text-center">{submitError}</p>
+                                        )}
+
                                         <div className="flex justify-between pt-2">
                                             <Button type="button" onClick={prevStep} variant="ghost" className="text-slate-500 hover:text-slate-800">
                                                 Corrigir algo
                                             </Button>
-                                            <Button type="submit" size="lg" className="bg-green-600 hover:bg-green-700 text-white rounded-xl px-10 shadow-lg shadow-green-500/30">
+                                            <Button type="submit" size="lg" disabled={isSubmitting} className="bg-green-600 hover:bg-green-700 text-white rounded-xl px-10 shadow-lg shadow-green-500/30 disabled:opacity-60">
                                                 Enviar Solicitação
                                                 <Send className="ml-2 w-4 h-4" />
                                             </Button>
